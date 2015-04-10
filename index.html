@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Test-task</title>
+		
+		
+		<link rel='stylesheet' href='css/styles.css' type='text/css' />	
+		<link rel='stylesheet' href='bower_components\foundation\css\foundation.css' type='text/css' />	
+	</head>
+	<body>
+		<a class="button" ng-click="greeting='Hello,Angular!'">Pin</a>
+		<h2>{{greeting}}</h2>
+		<ng-view ng-scope/>		
+		<script src="bower_components/angular/angular.min.js"></script>
+		<script src="bower_components/angular-route/angular-route.min.js"></script>
+		<script src="js/script.js"></script>				
+	</body>
+</html>
