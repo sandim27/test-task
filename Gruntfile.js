@@ -1,6 +1,4 @@
 module.exports = function(grunt) {
-
-    // 1. Вся настройка находится здесь
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         /*  
@@ -29,7 +27,7 @@ module.exports = function(grunt) {
         */
         concat: {           
             dist:{
-                src:['js/jquery-1.8.2.min.js','js/script.js',],
+                src:['bower_components\angular\angular.min.js','bower_components\angular-route\angular-route.min.js','js\app.js'],
                 dest:'js/build.js'
             }
         },
@@ -40,7 +38,7 @@ module.exports = function(grunt) {
             },
             build:{
                 src: 'js/build.js',
-                dest:'prod/js/build.min.js'
+                dest:'build/js/build.min.js'
             }
         },
         cssmin: {
@@ -49,7 +47,7 @@ module.exports = function(grunt) {
                     banner:'/*My css*/'
                 },
                 files:{
-                   'prod/css/build.css':['css/styles.css']
+                   'build/css/build.css':['css/styles.css']
                 }
             }
         },       
@@ -76,17 +74,16 @@ module.exports = function(grunt) {
                 tasks:['cssmin']
             }            
         },
-
     });
 
-    // 3. Тут мы указываем Grunt, что хотим использовать этот плагин
+
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    // 4. Указываем, какие задачи выполняются, когда мы вводим «grunt» в терминале
+
     grunt.registerTask('default', ['compass','concat','uglify','cssmin','watch']);
 
 };
