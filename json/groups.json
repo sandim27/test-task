@@ -1,0 +1,134 @@
+[
+  {
+    "group": "group-1",
+    "title": "title-1",
+    "users": {
+      "user-id": "user-1",
+      "user-id": "user-7",
+      "user-id": "user-15",
+    }
+  },
+  {
+    "group": "group-2",
+    "title": "title-2",
+    "users": {
+      "user-id": "user-1",
+      "user-id": "user-2",
+      "user-id": "user-5",
+      "user-id": "user-11",
+      "user-id": "user-12",
+    }
+  },
+  {
+    "group": "group-3",
+    "title": "title-3",
+    "users": {
+      "user-id": "user-2",
+      "user-id": "user-7",
+      "user-id": "user-12",
+      "user-id": "user-15",
+    }
+  },
+  {
+    "group": "group-4",
+    "title": "title-4",
+    "users": {
+      "user-id": "user-3",
+      "user-id": "user-5",
+      "user-id": "user-13",
+    }
+  },
+  {
+    "group": "group-5",
+    "title": "title-5",
+    "users": {
+      "user-id": "user-3",
+      "user-id": "user-7",
+      "user-id": "user-12",
+    }
+  },
+  {
+    "group": "group-6",
+    "title": "title-6",
+    "users": {
+      "user-id": "user-3",
+      "user-id": "user-9"
+    }
+  },
+  {
+    "group": "group-7",
+    "title": "title-7",
+    "users": {
+      "user-id": "user-4",
+      "user-id": "user-6",
+      "user-id": "user-13"
+    }
+  },
+  {
+    "group": "group-8",
+    "title": "title-8",
+    "users": {
+      "user-id": "user-4",
+      "user-id": "user-6",
+      "user-id": "user-11",
+      "user-id": "user-14"
+    }
+  },
+  {
+    "group": "group-9",
+    "title": "title-9",
+    "users": {
+      "user-id": "user-4",
+      "user-id": "user-5",
+      "user-id": "user-11",
+      "user-id": "user-6"
+    }
+  },
+  {
+    "group": "group-10",
+    "title": "title-10",
+    "users": {
+      "user-id": "user-8",
+      "user-id": "user-14"
+    }
+  },
+  {
+    "group": "group-11",
+    "title": "title-11",
+    "users": {
+      "user-id": "user-8",
+      "user-id": "user-10"
+    }
+  },
+  {
+    "group": "group-12",
+    "title": "title-12",
+    "users": {
+      "user-id": "user-8"
+    }
+  },
+  {
+    "group": "group-13",
+    "title": "title-13",
+    "users": {
+      "user-id": "user-9"
+    }
+  },
+  {
+    "group": "group-14",
+    "title": "title-14",
+    "users": {
+      "user-id": "user-9",
+      "user-id": "user-10",
+      "user-id": "user-13",
+      "user-id": "user-14"
+    }
+  },
+  {
+    "group": "group-15",
+    "title": "title-15",
+    "users": {
+      "user-id": "user-15"
+    }
+  }
+]
