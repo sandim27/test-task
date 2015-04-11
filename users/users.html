@@ -1,0 +1,21 @@
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>User-id</th>
+        <th>User-name</th>
+        <th>Name</th>
+        <th>Mail</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in users">
+        <td>{{item.userid}}</td>
+        <td>{{item.username}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.mail}}</td>
+    </tr>
+    </tbody>
+</table>
+<ul class="pagination" >
+    <li ng-repeat="item in paginationList" ng-click="showPage(item.link)" ng-class="{'active':currentPage() == item.link}"><a ng-bind-html="item.name"></a></li>
+</ul>

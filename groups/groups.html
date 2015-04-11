@@ -1,0 +1,17 @@
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Group</th>
+        <th>Title</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in groups">
+        <td>{{item.group}}</td>
+        <td>{{item.title}}</td>
+    </tr>
+    </tbody>
+</table>
+<ul class="pagination" >
+    <li ng-repeat="item in paginationList" ng-click="showPage(item.link)" ng-class="{'active':currentPage() == item.link}"><a ng-bind-html="item.name"></a></li>
+</ul>

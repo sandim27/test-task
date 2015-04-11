@@ -1,4 +1,14 @@
-var app = angular.module('app', ['ngRoute'])
+var app = angular.module('app', ['ngRoute']).config(function ($routeProvider) {
+    $routeProvider.when('/users', {
+        templateUrl: 'users/users.html',
+        controller: 'UsersCtrl'
+    });
+    $routeProvider.when('/groups', {
+        templateUrl: 'groups/groups.html',
+        controller: 'GroupsCtrl'
+    });
+
+})
 
 app.factory("pagination", function ($sce) {
     var currentPage = 0;
@@ -60,7 +70,11 @@ app.factory("pagination", function ($sce) {
     }
 })
 
-app.controller('mainCtrl', function ($http, $scope, pagination) {
+app.controller('HomeCtrl', function ($http, $scope, pagination) {
+
+});
+
+app.controller('UsersCtrl', function ($http, $scope, pagination) {
     $http.get("./json/users.json")
         .success(function (data) {
             $scope.tableUsers = data;
@@ -80,8 +94,25 @@ app.controller('mainCtrl', function ($http, $scope, pagination) {
                 return pagination.getCurrentPage()
             }
         });
+});
+app.controller('GroupsCtrl', function ($http, $scope, pagination) {
     $http.get("./json/groups.json")
         .success(function (data) {
-            $scope.tableGroups = data;
+            pagination.setUsers(data);
+            $scope.groups = pagination.getUsers();
+            $scope.paginationList = pagination.getList(data);
+            $scope.showPage = function (page) {
+                if (page == "prev") {
+                    $scope.groups = pagination.getPrev(page);
+                } else if (page == "next") {
+                    $scope.groups = pagination.getNext(page);
+                } else {
+                    $scope.groups = pagination.getUsers(page);
+                }
+            }
+            $scope.currentPage = function () {
+                return pagination.getCurrentPage()
+            }
         });
 });
+
