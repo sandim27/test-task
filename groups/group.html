@@ -1,0 +1,32 @@
+
+<form>
+    <div class="form-group">
+        <label for="Group">Group</label>
+        <input type="Userid" class="form-control" id="inputEmail" placeholder="{{user.group}}" ng-model="user.group">
+    </div>
+    <div class="form-group">
+        <label for="Title">Title</label>
+        <input type="Username" class="form-control" id="inputUsername" placeholder="{{user.title}}" ng-model="user.title">
+    </div>
+    <button type="submit" class="btn btn-primary" ng-click="save()">Save</button>
+    <button type="submit" class="btn btn-primary" ng-click="back()">Back</button>
+</form>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>User-id</th>
+        <th>User-name</th>
+        <th>Name</th>
+        <th>Mail</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in searchItemGroup">
+        <td>{{item.userid}}</td>
+        <td>{{item.username}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.mail}}</td>
+    </tr>
+    </tbody>
+</table>

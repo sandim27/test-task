@@ -7,7 +7,16 @@ var app = angular.module('app', ['ngRoute']).config(function ($routeProvider) {
         templateUrl: 'groups/groups.html',
         controller: 'GroupsCtrl'
     });
+    $routeProvider.when('/user/:name', {
+        templateUrl: 'users/user.html',
+        controller: 'UserCtrl'
 
+    });
+    $routeProvider.when('/group/:group', {
+        templateUrl: 'groups/group.html',
+        controller: 'GroupCtrl'
+
+    });
 })
 
 app.factory("pagination", function ($sce) {
@@ -66,53 +75,171 @@ app.factory("pagination", function ($sce) {
             var pagesNum = this.getTotalPage();
             if (nextPage >= pagesNum) nextPage = pagesNum - 1;
             return this.getUsers(nextPage);
+        },
+        editUser: function (edit, data) {
+            for (var i = 0; i < data.length; i++) {
+                if (edit === data[i].userid) {
+                    return data[i]
+                }
+            }
+        },
+        editGroup: function (edit, data) {
+            for (var i = 0; i < data.length; i++) {
+                if (edit === data[i].group) {
+                    return data[i]
+                }
+            }
+        },
+        searchItem: function (newUser, table) {
+            var result = [];
+            for (var i = 0; i < newUser.length; i++) {
+                for (var j = 0; j < table.length; j++) {
+                    if (newUser[i] == table[j].group) {
+                        result[i] = table[j];
+                    }
+                }
+            }
+            return result
+        },
+        searchItemGroup: function (newGr, table) {
+            var result = [];
+            for (var i = 0; i < newGr.length; i++) {
+                for (var j = 0; j < table.length; j++) {
+                    if (newGr[i] == table[j].userid) {
+                        result[i] = table[j];
+                    }
+                }
+            }
+            return result
         }
     }
 })
 
-app.controller('HomeCtrl', function ($http, $scope, pagination) {
+app.controller('HomeCtrl', function ($http, $scope, $routeParams, $location, pagination) {
 
-});
-
-app.controller('UsersCtrl', function ($http, $scope, pagination) {
     $http.get("./json/users.json")
         .success(function (data) {
             $scope.tableUsers = data;
-            pagination.setUsers(data);
-            $scope.users = pagination.getUsers();
-            $scope.paginationList = pagination.getList(data);
-            $scope.showPage = function (page) {
-                if (page == "prev") {
-                    $scope.users = pagination.getPrev(page);
-                } else if (page == "next") {
-                    $scope.users = pagination.getNext(page);
-                } else {
-                    $scope.users = pagination.getUsers(page);
-                }
-            }
-            $scope.currentPage = function () {
-                return pagination.getCurrentPage()
-            }
         });
-});
-app.controller('GroupsCtrl', function ($http, $scope, pagination) {
     $http.get("./json/groups.json")
         .success(function (data) {
-            pagination.setUsers(data);
-            $scope.groups = pagination.getUsers();
-            $scope.paginationList = pagination.getList(data);
-            $scope.showPage = function (page) {
-                if (page == "prev") {
-                    $scope.groups = pagination.getPrev(page);
-                } else if (page == "next") {
-                    $scope.groups = pagination.getNext(page);
-                } else {
-                    $scope.groups = pagination.getUsers(page);
-                }
-            }
-            $scope.currentPage = function () {
-                return pagination.getCurrentPage()
-            }
+            $scope.tableGroups = data;
         });
 });
 
+app.controller('UsersCtrl', function ($scope, $http, pagination) {
+    pagination.setUsers($scope.tableUsers);
+    $scope.users = pagination.getUsers();
+    $scope.paginationList = pagination.getList($scope.tableUsers);
+    $scope.showPage = function (page) {
+        if (page == "prev") {
+            $scope.users = pagination.getPrev(page);
+        } else if (page == "next") {
+            $scope.users = pagination.getNext(page);
+        } else {
+            $scope.users = pagination.getUsers(page);
+        }
+    }
+    $scope.currentPage = function () {
+        return pagination.getCurrentPage()
+    }
+});
+app.controller('GroupsCtrl', function ($scope, $http, pagination) {
+    pagination.setUsers($scope.tableGroups);
+    $scope.groups = pagination.getUsers();
+    $scope.paginationList = pagination.getList($scope.tableGroups);
+    $scope.showPage = function (page) {
+        if (page == "prev") {
+            $scope.groups = pagination.getPrev(page);
+        } else if (page == "next") {
+            $scope.groups = pagination.getNext(page);
+        } else {
+            $scope.groups = pagination.getUsers(page);
+        }
+    }
+    $scope.currentPage = function () {
+        return pagination.getCurrentPage()
+    }
+});
+app.controller('UserCtrl', function ($http, $scope, $routeParams, pagination, $location) {
+    $scope.user = pagination.editUser($routeParams.name, $scope.tableUsers);
+    $scope.params = {
+        userid: "",
+        username: "",
+        name: "",
+        mail: ""
+
+    }
+    $scope.$watch('user.userid', function (val) {
+        $scope.params.userid = val;
+    });
+    $scope.$watch('user.username', function (val) {
+        $scope.params.username = val;
+    });
+    $scope.$watch('user.name', function (val) {
+        $scope.params.name = val;
+    });
+    $scope.$watch('user.mail', function (val) {
+        $scope.params.mail = val;
+
+    });
+    $scope.save = function () {
+        for (var i = 0; i < $scope.tableUsers.length; i++) {
+            if ($scope.user.userid == $scope.tableUsers[i].userid) {
+                return $scope.tableUsers[i] = $scope.params
+            }
+        }
+    };
+    $scope.back = function () {
+        $location.path("users")
+    };
+
+    $scope.searchItem = pagination.searchItem($scope.user.groups, $scope.tableGroups)
+});
+
+
+app.controller('GroupsCtrl', function ($scope, $http, pagination) {
+    pagination.setUsers($scope.tableGroups);
+    $scope.groups = pagination.getUsers();
+    $scope.paginationList = pagination.getList($scope.tableGroups);
+    $scope.showPage = function (page) {
+        if (page == "prev") {
+            $scope.groups = pagination.getPrev(page);
+        } else if (page == "next") {
+            $scope.groups = pagination.getNext(page);
+        } else {
+            $scope.groups = pagination.getUsers(page);
+        }
+    }
+    $scope.currentPage = function () {
+        return pagination.getCurrentPage()
+    }
+});
+app.controller('GroupCtrl', function ($http, $scope, $routeParams, pagination, $location) {
+    $scope.user = pagination.editGroup($routeParams.group, $scope.tableGroups);
+    $scope.params = {
+        group: "",
+        title: ""
+    }
+
+    $scope.$watch('user.group', function (val) {
+        $scope.params.group = val;
+    });
+    $scope.$watch('user.title', function (val) {
+        $scope.params.username = val;
+    });
+    $scope.save = function () {
+        for (var i = 0; i < $scope.tableUsers.length; i++) {
+            if ($scope.user.userid == $scope.tableUsers[i].userid) {
+                return $scope.tableUsers[i] = $scope.params
+            }
+        }
+    };
+
+    $scope.back = function () {
+        $location.path("groups")
+    };
+
+    $scope.searchItemGroup = pagination.searchItemGroup($scope.user.users, $scope.tableUsers)
+
+});

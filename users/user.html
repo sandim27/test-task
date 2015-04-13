@@ -1,0 +1,37 @@
+
+<form>
+    <div class="form-group">
+        <label for="Userid">Userid</label>
+        <input type="Userid" class="form-control" id="inputEmail" placeholder="{{user.userid}}" ng-model="user.userid">
+    </div>
+    <div class="form-group">
+        <label for="Username">Username</label>
+        <input type="Username" class="form-control" id="inputUsername" placeholder="{{user.username}}" ng-model="user.username">
+    </div>
+    <div class="form-group">
+        <label for="Name">Name</label>
+        <input type="Name" class="form-control" id="Name" placeholder="{{user.name}}" ng-model="user.name">
+    </div>
+    <div class="form-group">
+        <label for="Mail">Mail</label>
+        <input type="Mail" class="form-control" id="Mail" placeholder="{{user.mail}}" ng-model="user.mail">
+    </div>
+    <button type="submit" class="btn btn-primary" ng-click="save()">Save</button>
+    <button type="submit" class="btn btn-primary" ng-click="back()">Back</button>
+</form>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Group</th>
+            <th>Title</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in searchItem">
+            <td>{{item.group}}</td>
+            <td>{{item.title}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+

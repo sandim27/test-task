@@ -4,162 +4,104 @@
     "username": "dsan",
     "name": "dima",
     "mail": "mail1@mai.ru",
-    "groups": {
-      "group": "group-1",
-      "group": "group-2"
-    }
+    "groups": ["group-1","group-2"]
   },
   {
     "userid": "user-2",
     "username": "saloma",
     "name": "sergey",
     "mail": "mail2@mai.ru",
-    "groups": {
-      "group": "group-2",
-      "group": "group-3"
-    }
+    "groups": ["group-2","group-3"]
   },
   {
     "userid": "user-3",
     "username": "alex",
     "name": "aleksandr",
     "mail": "mail3@mai.ru",
-    "groups": {
-      "group": "group-4",
-      "group": "group-5",
-      "group": "group-6"
-    }
+    "groups": ["group-4","group-5","group-6"]
   },
   {
     "userid": "user-4",
     "username": "pavlo",
     "name": "pavel",
     "mail": "mail4@mai.ru",
-    "groups": {
-      "group": "group-7",
-      "group": "group-8",
-      "group": "group-9"
-    }
+    "groups": ["group-7","group-8","group-9"]
   },
   {
     "userid": "user-5",
     "username": "aleksey",
     "name": "loha",
     "mail": "mail5@mai.ru",
-    "groups": {
-      "group": "group-4",
-      "group": "group-2",
-      "group": "group-9"
-    }
+    "groups": ["group-4","group-2","group-9"]
   },
   {
     "userid": "user-6",
     "username": "nikol",
     "name": "nikolay",
     "mail": "mail6@mai.ru",
-    "groups": {
-      "group": "group-7",
-      "group": "group-8",
-      "group": "group-9"
-    }
+    "groups": ["group-7","group-8","group-9"]
   },
   {
     "userid": "user-7",
     "username": "vasko",
     "name": "vasya",
     "mail": "mail7@mai.ru",
-    "groups": {
-      "group": "group-3",
-      "group": "group-1",
-      "group": "group-5"
-    }
+    "groups": ["group-3","group-1","group-5"]
   },
   {
     "userid": "user-8",
     "username": "andr",
     "name": "andrey",
     "mail": "mail8@mai.ru",
-    "groups": {
-      "group": "group-10",
-      "group": "group-11",
-      "group": "group-12"
-    }
+    "groups": ["group-10","group-11","group-12"]
   },
   {
     "userid": "user-9",
     "username": "senya",
     "name": "semen",
     "mail": "mail9@mai.ru",
-    "groups": {
-      "group": "group-13",
-      "group": "group-14",
-      "group": "group-6"
-    }
+    "groups": ["group-13","group-14","group-6"]
   },
   {
     "userid": "user-10",
     "username": "kirya",
     "name": "kiril",
     "mail": "mail10@mai.ru",
-    "groups": {
-      "group": "group-14",
-      "group": "group-15",
-      "group": "group-11"
-    }
+    "groups": ["group-14","group-15","group-11"]
   },
   {
     "userid": "user-11",
     "username": "rusel",
     "name": "ruslan",
     "mail": "mail11@mai.ru",
-    "groups": {
-      "group": "group-8",
-      "group": "group-9",
-      "group": "group-2"
-    }
+    "groups": ["group-8","group-9","group-2"]
   },
   {
     "userid": "user-12",
     "username": "vano",
     "name": "vanya",
     "mail": "mail12@mai.ru",
-    "groups": {
-      "group": "group-3",
-      "group": "group-5",
-      "group": "group-2"
-    }
+    "groups": ["group-3","group-5","group-2"]
   },
   {
     "userid": "user-13",
     "username": "olehandro",
     "name": "oleg",
     "mail": "mail13@mai.ru",
-    "groups": {
-      "group": "group-7",
-      "group": "group-4",
-      "group": "group-14"
-    }
+    "groups": ["group-7","group-4","group-14"]
   },
   {
     "userid": "user-14",
     "username": "denya",
     "name": "denis",
     "mail": "mail14@mai.ru",
-    "groups": {
-      "group": "group-14",
-      "group": "group-10",
-      "group": "group-8"
-    }
+    "groups": ["group-14","group-10","group-8"]
   },
   {
     "userid": "user-15",
     "username": "vladik",
     "name": "vlad",
     "mail": "mail15@mai.ru",
-    "groups": {
-      "group": "group-1",
-      "group": "group-3",
-      "group": "group-16"
-    }
+    "groups": ["group-1","group-3","group-16"]
   }
 ]

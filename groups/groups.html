@@ -9,6 +9,7 @@
     <tr ng-repeat="item in groups">
         <td>{{item.group}}</td>
         <td>{{item.title}}</td>
+        <td><a ng-click="showUser()"  class="btn btn-info" ng-href="#/group/{{item.group}}">Edit</a></td>
     </tr>
     </tbody>
 </table>

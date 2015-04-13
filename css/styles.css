@@ -79,3 +79,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 #wrapper #content .pagination li {
   cursor: pointer;
 }
+#wrapper #content form {
+  width: 500px;
+  margin: 0 auto;
+}
