@@ -23,9 +23,9 @@
         </div>
     </nav>
     <div id="content">
-        <ul class="breadcrumb">
-            <li><a href="#">Users</a></li>
-            <li class="active">Groups</li>
+        <ul class="breadcrumb" ng-show="breadcrumbs.length > 0">
+            <li class="active" ng-repeat="item in breadcrumbs"><a ng-href="{{item.link}}">{{item.name}}</a></li>
+
         </ul>
         <ng-view></ng-view>
     </div>
